@@ -1,13 +1,78 @@
 body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  font-family: sans-serif;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.App{
+  background: #2193b0;
+  background: -webkit-linear-gradient(to right, #6dd5ed, #2193b0);
+  background: linear-gradient(to right, #6dd5ed, #2193b0); 
+}
+.App.varm{
+  background: #f12711;
+  background: -webkit-linear-gradient(to right, #f5af19, #f12711);
+  background: linear-gradient(to right, #f5af19, #f12711);
+
+}
+main{
+  min-height: 100vh;
+  background-image: linear-gradient(to bottom, rgba(0,0,0,0.2), rgba (0,0,0,0.75));
+  padding: 25px;
+}
+
+.box-sok{
+  width: 100%;
+  margin: 0 0 70px;
+  
+}
+
+.box-sok .bar-sok{
+  display: block;
+  width: 100%;
+  padding: 15px;
+
+  appearance: none;
+  border: none;
+  outline: none;
+
+  border-radius: 0px 0px 20px 20px;
+  margin-top: -25px;
+
+}
+
+.by-box .by{
+  color: #FFF;
+  font-size: 35px;
+  text-align: center;
+}
+
+.by-box .dato{
+  color: #FFF;
+  font-size: 22px;
+  text-align: center;
+}
+
+.ver-box{
+  text-align: center;
+}
+
+.ver-box .temp{
+  position: relative;
+  display: inline-block;
+  margin: 30px auto;
+  border-radius: 16px;
+  background-color: rgba(255, 255, 255, 0.3);
+  padding: 15px 25px;
+  color: #FFF;
+  font-size: 100px;
+}
+
+.ver-box .ver{
+  color: #FFF;
+  font-size: 50px;
 }
