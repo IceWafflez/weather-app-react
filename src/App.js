@@ -7,8 +7,8 @@
 import React, { useState } from 'react';
 import './App.css';
 const api = {
-  key: "c81531ab3df3503ce806b94ef1e069d7",
-  base: "https://api.openweathermap.org/data/2.5"
+  key: "0c275275d6148774fa53bd2575dc98b8",
+  base: "https://api.openweathermap.org/data/2.5/"
 
 }
 
