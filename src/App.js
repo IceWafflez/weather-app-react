@@ -4,21 +4,22 @@
 å=a
 */ 
 
-import React, { useState } from 'react';
+import React, { useEffect,useState } from 'react';
 import './App.css';
 const api = {
-  key: "0c275275d6148774fa53bd2575dc98b8",
+  key: "b1b7d8aabc91d00eb14c524e82835f99",
   base: "https://api.openweathermap.org/data/2.5/"
 
 }
 
 function App() {
+  var unit="";
   const [query, setQuery] = useState('');
   const [weather, setWeather] = useState({});
 
   const search = evt => {
     if (evt.key === "Enter") {
-      fetch(`${api.base}weather?q=${query}&units=metric&AAPID=${api.key}`)
+      fetch(`https://api.openweathermap.org/data/2.5/weather?q=${query}&units=metric&appid=${api.key}`)
         .then(res => res.json())
         .then(result => {
           setWeather(result);
@@ -27,13 +28,28 @@ function App() {
         });
     }
   }
-
+  fetch('https://extreme-ip-lookup.com/json/')
+  .then( res => res.json())
+  .then(response => {
+    console.log("Country: ", response.country);
+  })
+  .catch((data, status) => {
+    console.log('Request failed');
+  })
+  /*
+  function () {
+    if (weather.weather[0].main=="Clouds") {
+      return <img src/>
+    }
+    return <img src/>
+  }
+  */
 
   const DatoFunksjon = (d) => {
     let maneder =["Januar", "Februar", "Mars", "April", "Mai", "Juni", "Juli", "August", "September", "Oktober", "November", "Desember"]
 
-    let dager = ["Mandag","Tirsdag","Onsdag","Torsdag","Fredag","Lørdag","Søndag"];
-
+    let dager = ["Søndag","Mandag","Tirsdag","Onsdag","Torsdag","Fredag","Lørdag"];
+    
     let dag = dager[d.getDay()];
     let dato = d.getDate();
     let maned = maneder[d.getMonth()];
@@ -44,7 +60,11 @@ function App() {
 
   return (
     
-    <div className="App">
+    <div className={
+      (typeof weather.main != "undefined")
+      ? ((weather.main.temp > 16)
+      ? 'App varm' : 'App')
+      : 'App'}>
       <main>
         <div className="box-sok">
           <input 
@@ -57,18 +77,25 @@ function App() {
           />
         </div>
         <br></br><br></br><br></br>
+        {(typeof weather.main != "undefined") ? (
+        <div>
         <div className="by-box">
-          <div className="by">Oslo,No</div>
+          <div className="by">{weather.name}, {weather.sys.country}</div>
           <div className="dato">{DatoFunksjon(new Date())}</div>
         </div>
         <div className="ver-box">
           <div className="temp">
-            15C
+            {Math.round(weather.main.temp)}°c
           </div>
           <div className="ver">
-            Sol
+            {weather.weather[0].main}
+          </div>
+          <div className="ikon">
+
           </div>
         </div>
+        </div>
+  ) : ("")}
       </main>
     </div>
   );

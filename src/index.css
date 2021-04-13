@@ -13,8 +13,12 @@ body {
   background: linear-gradient(to right, #6dd5ed, #2193b0); 
 }
 .App.varm{
-  background: -webkit-linear-gradient(to right, #f5af19, #f12711);
-  background: linear-gradient(to right, #f5af19, #f12711);
+  
+  background: -webkit-linear-gradient(to right, #e35d5b, #e53935);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #e35d5b, #e53935); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  
+  
+
 
 }
 main{
@@ -73,4 +77,9 @@ main{
 .ver-box .ver{
   color: #FFF;
   font-size: 50px;
+}
+
+
+.ikon{
+  background-image: url(./10d@2x.png);
 }
