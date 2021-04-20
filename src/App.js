@@ -6,6 +6,7 @@
 
 import React, { useEffect,useState } from 'react';
 import './App.css';
+
 const api = {
   key: "b1b7d8aabc91d00eb14c524e82835f99",
   base: "https://api.openweathermap.org/data/2.5/"
@@ -77,6 +78,7 @@ function App() {
           />
         </div>
         <br></br><br></br><br></br>
+        
         {(typeof weather.main != "undefined") ? (
         <div>
         <div className="by-box">
@@ -91,7 +93,7 @@ function App() {
             {weather.weather[0].main}
           </div>
           <div className="ikon">
-
+          <img src={`http://openweathermap.org/img/w/${weather.weather[0].icon}.png`} alt='ikon'></img>
           </div>
         </div>
         </div>
